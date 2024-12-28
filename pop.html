@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<title>alertBox</title>
+<style>
+body{
+    text-align: center;
+    margin-top: 60px;
+}
+.btn {
+   
+   border: none;
+   outline: none;
+   color: #dd7b7b;
+   cursor: pointer;
+   position: relative;
+   z-index: 0;
+   border-radius: 12px;
+ }
+ .btn::after {
+   content: "";
+   z-index: -1;
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   background-color: #ebcffa;
+   left: 0;
+   top: 0;
+   border-radius: 10px;
+ }
+.btn::before {
+   content: "";
+   background: linear-gradient(
+     45deg,
+     #FF0000, #FF7300, #FFFB00, #48FF00,
+     #00FFD5, #002BFF, #FF00C8, #FF0000
+   );
+   position: absolute;
+   top: -2px;
+   left: -2px;
+   background-size: 600%;
+   z-index: -1;
+   width: calc(100% + 4px);
+   height:  calc(100% + 4px);
+   filter: blur(8px);
+   animation: glowing 20s linear infinite;
+   transition: opacity .3s ease-in-out;
+   border-radius: 10px;
+   opacity: 0;
+ }
+ @keyframes glowing {
+   0% {background-position: 0 0;}
+   50% {background-position: 400% 0;}
+   100% {background-position: 0 0;}
+ } 
+ .btn::before {
+   opacity: 1;
+ }
+ .btn:hover:after{
+   background-image: url("https://i.ibb.co/TPMBCJp/6.jpg");
+   opacity: 1;
+ }
+ 
+ .btn:active:after {
+   background: transparent;
+ }
+ 
+ .btn:active {
+   color: #d8bcbc;
+   font-weight: bold;
+ }
+
+</style>
+</head>
+<body>
+    <label>budget</label>
+<input type="number"id="age"Placeholder ="Enter your balance">
+<button class="btn" onclick="verifyage()"> Submit</button>
+<script>
+    function verifyage(){
+        var age=document.getElementById('age').value;
+        if (age<50){
+            alert("not eligible for shoping");
+        }
+        else{
+            alert("eligible for shoping")
+        }
+    }
+</script>
+</body>
+</html>
